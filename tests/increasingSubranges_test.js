@@ -1,5 +1,4 @@
 const { expect } = require('chai');
-require('mocha-sinon')
 const {
   parseTxtIntoObject,
   calculateTrendByTwo,
