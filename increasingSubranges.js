@@ -1,16 +1,25 @@
 
 const filterInput = ( input ) =>
-  input.split(' ').filter(value => value !== '').map( Number )
+  input.split(' ').filter(value => value !== '').map( value => {
+    const numericValue = Number(value)
+    if( isNaN(numericValue) ) {
+      throw `Invalid input. Value '${value}' is not a number.`
+    }
+    return numericValue
+  })
 
 const parseTxtIntoObject = ( inputText ) => {
   const inputAsArray = inputText.toString().split('\n')
   const sizeAndWindowInput = filterInput(inputAsArray[0])
   const homeSalePriceArray = filterInput(inputAsArray[1])
-
+  console.log('inputAsArray:', inputAsArray)
+  if( inputAsArray.length < 2 ) {
+    throw 'Invalid input. Not enough arguments.'
+  }
   if( sizeAndWindowInput.length < 2 ){
     throw 'Invalid input. Not enough arguments on line 1.'
   }
-  if( sizeAndWindowInput[0] !== homeSalePriceArray.length ) {
+  if( sizeAndWindowInput[0] != homeSalePriceArray.length ) {
     throw `Given integer N: ${sizeAndWindowInput[0]} does not match with given input on line 2: ${homeSalePriceArray.length}`
   }
 
@@ -18,7 +27,6 @@ const parseTxtIntoObject = ( inputText ) => {
     'homeSalePriceArray': homeSalePriceArray,
     'kWindowSize': sizeAndWindowInput[1]
   }
-
   return homeSalePrices
 }
 
@@ -37,7 +45,6 @@ const calculateTrendByTwo = ( homeSalePrices ) => {
     } else {
       memo.push(0)
     }
-
     return memo
   }, [] )
 

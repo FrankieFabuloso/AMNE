@@ -15,6 +15,7 @@ const findIncreasingSubranges = ( filepath ) => {
     .then( calculateTrendByTwo )
     .then( calulateResultsPerWindowSize )
     .then( printWindowResultsByLine )
+    .catch( error => console.error( 'ERROR', error ))
 }
 
-findIncreasingSubranges('input/input.txt')
+findIncreasingSubranges('input/input2.txt')
