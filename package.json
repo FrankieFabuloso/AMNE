@@ -1,26 +1,26 @@
 {
   "name": "amnechallenge",
   "version": "1.0.0",
-  "description": "Take home problem for AMNE",
+  "description": "Take home problem for AMNE web developer position.",
   "main": "app.js",
   "directories": {
     "test": "tests"
   },
-  "devDependencies": {
-    "chai": "^4.1.1",
-    "mocha": "^3.5.0"
-  },
   "scripts": {
-    "test": "mocha tests/*"
+    "test": "mocha ./tests/*.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FrankieFabuloso/AMNE.git"
   },
-  "author": "",
+  "author": "Franicisco Rocha",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/FrankieFabuloso/AMNE/issues"
   },
-  "homepage": "https://github.com/FrankieFabuloso/AMNE#readme"
+  "homepage": "https://github.com/FrankieFabuloso/AMNE#readme",
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0"
+  }
 }
