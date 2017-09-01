@@ -32,8 +32,8 @@ describe( 'parseTxtIntoObject()', () => {
     })
 
     it( 'object contains array of average home sale data of length N', () => {
-      expect( fileContents.homeSalePriceArray.length ).equal(5)
-      expect( fileContents.homeSalePriceArray ).deep.equal([1,2,3,4,5])
+      expect( fileContents.homeSalePrices.length ).equal(5)
+      expect( fileContents.homeSalePrices ).deep.equal([1,2,3,4,5])
     })
   })
 })
@@ -45,11 +45,11 @@ describe( 'calculateTrendByTwo()', () => {
   })
 
   describe( 'Calulates the trend over N months by a window size of 2', () => {
-    const homeSalePrices = {
-      'homeSalePriceArray': [1, 2, 3, 4, 5],
+    const homeSalePriceData = {
+      'homeSalePrices': [1, 2, 3, 4, 5],
       'kWindowSize': 3
     }
-    const windowSizeOfTwo = calculateTrendByTwo(homeSalePrices)
+    const windowSizeOfTwo = calculateTrendByTwo(homeSalePriceData)
 
     it( 'returns an object with two keys', () => {
       expect( Object.keys(windowSizeOfTwo).length ).equal(2)
@@ -67,11 +67,11 @@ describe( 'calulateResultsPerWindowSize()', () => {
   })
 
   describe( 'Calucates average home sale price trend by K window size', () => {
-    const homeSalePrices =  {
+    const homeSalePriceData =  {
       subrangeCalulation: [1, 1, 1, 1],
       'kWindowSize': 3
     }
-    const homeSaleTrendsByK = calulateResultsPerWindowSize(homeSalePrices)
+    const homeSaleTrendsByK = calulateResultsPerWindowSize(homeSalePriceData)
 
     it( 'Returns array of calulated trends by window size K', () => {
       expect( homeSaleTrendsByK ).deep.equal([3,3,3])

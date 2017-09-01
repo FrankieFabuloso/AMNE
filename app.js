@@ -18,4 +18,4 @@ const findIncreasingSubranges = ( filepath ) => {
     .catch( error => console.error( 'ERROR', error ))
 }
 
-findIncreasingSubranges('input/input2.txt')
+findIncreasingSubranges('input.txt')
